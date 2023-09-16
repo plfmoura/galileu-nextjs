@@ -44,7 +44,7 @@ const NavBar: React.FC = () => {
       <nav className='navbar-container-desktop'>
         {/* <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' /> */}
         <h1>GALILEU</h1>
-        <MenuOutlined className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />
+        <MenuOutlined style={{ display: width > 768 ? "none" : 'block' }} className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />
         <div className="navbar-dropdown-overlay" style={{ display: activeMenuList ? "block" : 'none' }} onClick={() => setActiveMenuList(false)} ></div>
         <ul className="navbar-content-list-desktop" style={{ display: width >= 768 ? "flex" : activeMenuList ? 'flex' : "none" }}>
           {NAVBAR_LINK.map((item, key) =>
