@@ -6,7 +6,6 @@ import './styles.css';
 import { MenuOutlined, HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp } from '@mui/icons-material';
 import { AppContext } from '@/contexts/AppContext';
 
-
 const NavBar: React.FC = () => {
   const [active, setActive] = useState<string>("#header");
   const [activeMenuList, setActiveMenuList] = useState<boolean>(false);
@@ -16,7 +15,7 @@ const NavBar: React.FC = () => {
     setActive(path);
     setActiveMenuList(false);
   };
-
+  
   return (
     <>
       <nav className='navbar-container-mobile'>

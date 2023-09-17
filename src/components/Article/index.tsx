@@ -19,7 +19,7 @@ export default function Article({
       <article className="article-container">
         <Image src={image} alt='Imagem acerca do texto' className='article-image'/>
         <aside className="article-align-text">
-          <h2 className="article-title">{title}</h2>
+          <h3 className="article-title">{title}</h3>
           <p className="article-text">{text}</p>
           <Button variant='secondary' type='button' value='Saiba mais' />
         </aside>
