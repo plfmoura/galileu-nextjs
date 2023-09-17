@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
 import React, { useState, useContext } from 'react';
 import './styles.css';
 import { MenuOutlined, HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp } from '@mui/icons-material';
@@ -9,14 +8,11 @@ import { AppContext } from '@/contexts/AppContext';
 
 
 const NavBar: React.FC = () => {
-  const route = useRouter();
-  const location = usePathname();
-  const [active, setActive] = useState<string>(location);
+  const [active, setActive] = useState<string>("#header");
   const [activeMenuList, setActiveMenuList] = useState<boolean>(false);
   const { width } = useContext<any>(AppContext);
 
   const handleNavigation = ({ path }: { path: string }) => {
-    route.push(path);
     setActive(path);
     setActiveMenuList(false);
   };
@@ -27,17 +23,19 @@ const NavBar: React.FC = () => {
         <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' />
         <ul className="navbar-content-list-mobile">
           {NAVBAR_LINK.map((item, key) =>
-            <li
-              key={key}
-              className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
-              id={item.name.toLowerCase()}
-              onClick={() => handleNavigation({ path: `${item.path}` })}
-            >
-              {item.icon}
-              <span className="navbar-item-name" >
-                {item.name}
-              </span>
-            </li>
+            <a href={`${item.path}`}>
+              <li
+                key={key}
+                className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
+                id={item.name.toLowerCase()}
+                onClick={() => handleNavigation({ path: `${item.path}` })}
+              >
+                {item.icon}
+                <span className="navbar-item-name" >
+                  {item.name}
+                </span>
+              </li>
+            </a>
           )}
         </ul>
       </nav>
@@ -54,10 +52,12 @@ const NavBar: React.FC = () => {
               id={item.name.toLowerCase()}
               onClick={() => handleNavigation({ path: `${item.path}` })}
             >
-              {item.icon}
-              <span className="navbar-item-name" >
-                {item.name}
-              </span>
+              <a href={`${item.path}`}>
+                {item.icon}
+                <span className="navbar-item-name" >
+                  {item.name}
+                </span>
+              </a>
             </li>
           )}
         </ul>
@@ -71,22 +71,22 @@ export default NavBar;
 const NAVBAR_LINK = [
   {
     name: "Home",
-    path: '/',
+    path: '#header',
     icon: <HomeSharp />,
   },
   {
     name: "Sobre",
-    path: '/sobre',
+    path: '#about',
     icon: <AutoStoriesSharp />,
   },
   {
     name: "Serviços",
-    path: '/servicos',
+    path: '#services',
     icon: <HandymanSharp />,
   },
   {
     name: "Contato",
-    path: '/contato',
+    path: '#contact',
     icon: <PermPhoneMsgSharp />,
   },
 ];

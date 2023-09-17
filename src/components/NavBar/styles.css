@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    background-color: #fff;
+    background-color: var(--primary-color);
     bottom: 0;
 }
 
@@ -13,7 +13,7 @@
 
 .navbar-container-mobile h1,
 .navbar-container-desktop h1 {
-    color: #e26003;
+    color: var(--secondary-color);
     font-weight: 700;
     font-size: 32px;
     letter-spacing: 5px;
@@ -21,7 +21,7 @@
 
 .navbar-dropdown-menu {
     font-size: 48px;
-    color: #fff;
+    color: var(--primary-color);
     animation: appears-icon 1s ease-in-out normal;
 }
 
@@ -40,7 +40,7 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    color: #333;
+    color: var(--tertiary-color);
 }
 
 .navbar-list-item svg {
@@ -53,12 +53,15 @@
 }
 
 .navbar-active {
-    color: #e26003;
+    color: var(--secondary-color);
 }
 
 /* desktop navigation component  */
 .navbar-container-desktop {
     display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
 }
 
 @media screen and (min-width: 480px) {
@@ -77,14 +80,17 @@
     }
 
     .navbar-dropdown-menu {
-        color: #fff;
+        color: var(--primary-color);
         animation: appears-icon 1s ease-in-out normal;
     }
 
     @keyframes appears-icon {
-        0%,90% {
+
+        0%,
+        90% {
             opacity: 0;
         }
+
         100% {
             opacity: 1;
         }
@@ -103,7 +109,7 @@
     .navbar-content-list-desktop {
         align-items: center;
         flex-direction: column;
-        background-color: #fff;
+        background-color: var(--primary-color);
         position: fixed;
         top: 0;
         right: 0;
@@ -124,14 +130,14 @@
         margin-top: 2rem;
         flex-direction: row;
         justify-content: space-around;
-        color: #333;
+        color: var(--tertiary-color);
         width: 100%;
         display: flex;
         cursor: pointer;
     }
 
     .navbar-active {
-        color: #e26003;
+        color: var(--secondary-color);
     }
 
     .navbar-item-name {
@@ -168,7 +174,7 @@
 
     .navbar-list-item-desktop {
         margin-top: 0rem;
-        color: #fff;
+        color: var(--primary-color);
     }
 
     .navbar-item-name {
@@ -177,7 +183,7 @@
     }
 
     .navbar-active {
-        color: #e26003;
+        color: var(--secondary-color);
     }
 
 }

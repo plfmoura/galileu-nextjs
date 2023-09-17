@@ -1,0 +1,90 @@
+.header-container {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    user-select: none;
+    position: relative;
+}
+
+.header-image {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.header-overlay {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.7;
+}
+
+.header-text-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    height: 50vh;
+    z-index: 1;
+}
+
+.header-galileu-icon {
+    font-size: 40px;
+    border-radius: 100%;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secondary-color);
+    animation: appears-icon 5s ease-in-out infinite;
+}
+
+.header-galileu-desc {
+    color: var(--primary-color);
+}
+
+@keyframes appears-icon {
+
+    0%,
+    65%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.bottom-decorative-shape {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: absolute;
+    bottom: -15px;
+    width: 60px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.bottom-decorative-shape svg {
+    color: var(--secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+    .header-container {
+        height: 70vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header-container {
+        height: 80vh;
+    }
+}
