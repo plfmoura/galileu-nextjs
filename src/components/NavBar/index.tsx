@@ -23,9 +23,8 @@ const NavBar: React.FC = () => {
         <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' />
         <ul className="navbar-content-list-mobile">
           {NAVBAR_LINK.map((item, key) =>
-            <a href={`${item.path}`}>
+            <a key={key} href={`${item.path}`}>
               <li
-                key={key}
                 className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
                 id={item.name.toLowerCase()}
                 onClick={() => handleNavigation({ path: `${item.path}` })}
