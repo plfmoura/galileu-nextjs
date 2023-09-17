@@ -4,6 +4,7 @@ import Article from '@/components/Article'
 import liveRoom from '../../public/liveroom.jpg'
 import room from '../../public/room.jpg'
 import kitchen from '../../public/kitchen.jpg'
+import Card from '@/components/Card'
 
 export default function Home() {
   return (
@@ -18,11 +19,20 @@ export default function Home() {
           ))
         }
       </section>
-      <section id="services">
-
+      <section id="services" className={styles.services_container}>
+        <h2 className={styles.home_section_title}>Serviços</h2>
+        <article className={styles.cards_align}>
+          {
+            SERVICES_DATA.map((item, key) => (
+              <Card key={key} value={item.value} image={item.image} />
+            ))
+          }
+        </article>
       </section>
-      <section id="contact">
-        
+      <section id="contact" className={styles.contact_container}>
+        <h2 className={styles.home_section_title}>Contato</h2>
+        <article className={styles.contacts_align}>
+        </article>
       </section>
     </main>
   )
@@ -47,4 +57,27 @@ const ARTICLES_DATA = [
     title: "Como Escolher Móveis Planejados",
     text: "Na hora de escolher móveis planejados, leve em consideração suas necessidades de espaço, orçamento e a importância de trabalhar com um especialista para garantir um investimento inteligente e duradouro."
   }
+]
+
+const SERVICES_DATA = [
+  {
+    id: 0,
+    image: room,
+    value: "Teste de valor",
+  },
+  {
+    id: 1,
+    image: room,
+    value: "Teste de valor",
+  },
+  {
+    id: 2,
+    image: room,
+    value: "Teste de valor",
+  },
+  {
+    id: 3,
+    image: room,
+    value: "Teste de valor",
+  },
 ]
