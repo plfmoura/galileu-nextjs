@@ -13,8 +13,8 @@ export default function Home() {
       </header>
       <section id="about" className={styles.article_align}>
         {
-          ARTICLES_DATA.map((item) => (
-            <Article image={item.image} text={item.text} title={item.title} />
+          ARTICLES_DATA.map((item, key) => (
+            <Article key={key} image={item.image} text={item.text} title={item.title} />
           ))
         }
       </section>
