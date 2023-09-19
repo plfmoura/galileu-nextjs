@@ -26,7 +26,7 @@ export default function Footer() {
                     width: '100%',
                     background: 'var(--tertiary-color)',
                     color: 'var(--primary-color)',
-                    padding: '1rem 5%'
+                    padding: '1rem 10%'
                 }}
             >
                 <p>Desenvolvido por Label Soluções em T.I</p>

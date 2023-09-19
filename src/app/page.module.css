@@ -5,7 +5,8 @@
 }
 
 .header_align {
-  background-color: #e2ad637d;
+  background: rgba(159, 141, 113, 0.47);
+  background: linear-gradient(90deg, rgba(226, 174, 96, 0.537) 0%, rgba(184, 140, 73, 0.326) 100%); ;
 }
 
 .article_align {
