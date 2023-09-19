@@ -9,7 +9,7 @@ import { AppContext } from '@/contexts/AppContext';
 const NavBar: React.FC = () => {
   const [active, setActive] = useState<string>("#header");
   const [activeMenuList, setActiveMenuList] = useState<boolean>(false);
-  const { width } = useContext<any>(AppContext);
+  const { width, scroll } = useContext<any>(AppContext);
 
   const handleNavigation = ({ path }: { path: string }) => {
     setActive(path);
@@ -37,7 +37,13 @@ const NavBar: React.FC = () => {
           )}
         </ul>
       </nav>
-      <nav className='navbar-container-desktop'>
+      <nav className='navbar-container-desktop' style={{
+        background: scroll > 30 ? `#333333${scroll < 99 ? scroll : 'ff'}` : 'transparent',
+        width: scroll > 30 ? '100vw' : '100vw',
+        margin: 0,
+        padding: '0 5%',
+        boxShadow: scroll > 30 ? 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px' : 'none'
+      }}>
         {/* <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' /> */}
         <h1>GALILEU</h1>
         <MenuOutlined style={{ display: width > 768 ? "none" : 'block' }} className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />

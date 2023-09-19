@@ -14,7 +14,7 @@ export default function Header() {
         <h1 className="header-galileu-icon">Móveis Planejados</h1>
         <p className="header-galileu-desc">lorem ipsunm daz quer pra tayas car pra zium</p>
         <p className="header-galileu-desc">lorem ipsunm daz quer pra tayas car pra zium</p>
-        <a href="#services"><Button value='Descubra' type='button' variant='secondary' style={{padding: "1rem 3rem"}}/></a>
+        <a href="#services"><Button value='Consultar serviços' type='button' variant='secondary' style={{padding: "1rem 3rem"}}/></a>
       </div>
       <span className="bottom-decorative-shape"><ArrowDownwardOutlined /></span>
     </section>

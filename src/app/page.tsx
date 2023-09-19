@@ -1,11 +1,11 @@
-import Header from '@/components/Header'
+import React from 'react'
 import styles from './page.module.css'
+import Header from '@/components/Header'
 import Article from '@/components/Article'
 import liveRoom from '../../public/liveroom.jpg'
 import room from '../../public/room.jpg'
 import kitchen from '../../public/kitchen.jpg'
 import Card from '@/components/Card'
-import React from 'react'
 
 export default function Home() {
   return (
@@ -64,21 +64,21 @@ const SERVICES_DATA = [
   {
     id: 0,
     image: room,
-    value: "Teste de valor",
+    value: "Móveis para Quarto",
   },
   {
     id: 1,
     image: room,
-    value: "Teste de valor",
+    value: "Móveis para Cozinha",
   },
   {
     id: 2,
     image: room,
-    value: "Teste de valor",
+    value: "Móveis para Escritório",
   },
   {
     id: 3,
     image: room,
-    value: "Teste de valor",
+    value: "Móveis para Sala",
   },
 ]

@@ -25,6 +25,7 @@
     align-items: flex-start;
     position: relative;
     padding-left: 2%;
+    margin-right: 10%;
 }
 
 .header-text-content h1 {
@@ -40,7 +41,7 @@
 .header-text-content button {
     position: absolute;
     bottom: 0;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 }
 
 .header-galileu-icon {
@@ -88,7 +89,7 @@
 
 @media screen and (min-width: 480px) {
     .header-man-image {
-        height: 78%;
+        height: 80%;
         margin-left: 40%;
     }
 
@@ -97,20 +98,29 @@
     }
 
     .header-text-content {
-        padding-left: 0;
+        padding-left: 5%;
+        margin: 0% 30% 0 0;
     }
 
     .header-text-content h1 {
-        font-size: 34px;
+        font-size: 32px;
         margin-top: 2rem;
     }
 
     .header-text-content p {
-        font-size: 20px;
+        font-size: 18px;
+        width: 80%;
     }
 
     .header-text-content button {
-        margin-bottom: 11rem;
+        margin-bottom: 8rem;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .header-man-image {
+        height: 90%;
+        margin-left: 50%;
     }
 }
 
