@@ -52,6 +52,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .home_container {
+    margin-bottom: 0;
+  }
+  
   .home_section_title {
     letter-spacing: 4px;
     font-size: 32px;

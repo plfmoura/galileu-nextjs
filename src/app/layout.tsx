@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AppProvider } from '@/contexts/AppContext'
 import FloatBtn from '@/components/FloatBtn'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <FloatBtn />
+          <Footer />
         </AppProvider>
       </body>
     </html>
