@@ -4,11 +4,16 @@ import { createContext, useEffect, useState } from "react";
 
 export const AppContext = createContext({});
 
+interface WindowSize {
+  width: number;
+  height: number;
+}
+
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [scroll, setScroll] = useState(0);
-  const [windowSize, setWindowSize] = useState<object>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+  const [windowSize, setWindowSize] = useState<WindowSize>({
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
