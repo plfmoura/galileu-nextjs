@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useContext } from 'react'
 import man_secondary_creative from '../../../public/man-secondary.png'
 import Image from 'next/image'
 import './styles.css'
@@ -10,6 +10,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import Lottie from 'lottie-react'
 import send_msg from '../../../public/send-msg.json'
+import { motion } from 'framer-motion';
+import { AppContext } from '@/contexts/AppContext'
 
 type Inputs = {
     name: string,
@@ -17,9 +19,10 @@ type Inputs = {
     text: string
 }
 
-export default function Contact () {
+export default function Contact() {
     const { register, reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const [controller, setController] = useState<boolean>(true);
+    const { windowSize } = useContext<any>(AppContext);
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         let owner_number: number = 5521980693374;
@@ -39,10 +42,20 @@ export default function Contact () {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='form-container'>
-            <aside className="left-container-side">
+            <motion.aside
+                initial={motion_settings.offScreenLeft}
+                whileInView={motion_settings.onScreen}
+                viewport={{ once: true }}
+                className="left-container-side"
+            >
                 <Image src={man_secondary_creative} alt='Criativo da área de contato' className='aside-man-image' />
-            </aside>
-            <div className="form-contact-content">
+            </motion.aside>
+            <motion.div
+                initial={windowSize.width >= 780 ? motion_settings.offScreenRight : motion_settings.offScreenMobile}
+                whileInView={motion_settings.onScreen}
+                viewport={{ once: true }}
+                className="form-contact-content"
+            >
                 <p className="form-contact-text">Acesse nossos Perfis</p>
                 <div className="form-contact-header">
                     <a href="www.google.com" className="social-link"><WhatsApp /></a>
@@ -66,17 +79,17 @@ export default function Contact () {
                             <LoadingAnimation />
                             <p>Vamos abrir um <strong>link seguro</strong> com o <strong>Whatsapp</strong> para finalizar o envio, aguarde!</p>
                             <p>Você falará com <strong>Reinaldo Moura.</strong></p>
-                            <Button type='button' value='Nova Mensagem' variant='secondary' onPress={() => setController(true)}/>
+                            <Button type='button' value='Nova Mensagem' variant='secondary' onPress={() => setController(true)} />
                         </div>
                 }
-            </div>
+            </motion.div>
         </form>
     )
 }
 
 const LoadingAnimation = () => {
     return (
-        <Lottie 
+        <Lottie
             animationData={send_msg}
             loop={false}
             style={{
@@ -85,4 +98,27 @@ const LoadingAnimation = () => {
             }}
         />
     )
+}
+
+const motion_settings = {
+    offScreenMobile: {
+        opacity: 0,
+    },
+    offScreenLeft: {
+        opacity: 0,
+        translateX: -500
+    },
+    offScreenRight: {
+        opacity: 0,
+        translateX: 500
+    },
+    onScreen: {
+        opacity: 1,
+        translateX: 0,
+        transition: {
+            type: "spring",
+            bounce: 0.4,
+            duration: 2
+        }
+    }
 }

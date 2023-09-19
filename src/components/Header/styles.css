@@ -3,7 +3,6 @@
     width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     user-select: none;
     position: relative;
@@ -18,11 +17,13 @@
 }
 
 .header-text-content {
-    gap: 1rem;
-    height: 100%;
+    margin-top: 15%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
     position: relative;
     padding-left: 2%;
     margin-right: 10%;
@@ -30,7 +31,6 @@
 
 .header-text-content h1 {
     font-size: 30px;
-    margin-top: 3rem;
 }
 
 .header-text-content p {
@@ -39,9 +39,7 @@
 }
 
 .header-text-content button {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 5rem;
+    margin-top: 5%;
 }
 
 .header-galileu-icon {
@@ -99,7 +97,7 @@
 
     .header-text-content {
         padding-left: 5%;
-        margin: 0% 30% 0 0;
+        margin: 10% 30% 0 0;
     }
 
     .header-text-content h1 {
@@ -160,6 +158,10 @@
     .header-man-image {
         height: 85%;
         margin-left: 40%;
+    }
+
+    .header-text-content {
+        margin: 10% 30% 0 0;
     }
 
     .header-text-content h1 {

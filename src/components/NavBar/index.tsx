@@ -9,7 +9,7 @@ import { AppContext } from '@/contexts/AppContext';
 const NavBar: React.FC = () => {
   const [active, setActive] = useState<string>("#header");
   const [activeMenuList, setActiveMenuList] = useState<boolean>(false);
-  const { width, scroll } = useContext<any>(AppContext);
+  const { windowSize, scroll } = useContext<any>(AppContext);
 
   const handleNavigation = ({ path }: { path: string }) => {
     setActive(path);
@@ -46,9 +46,9 @@ const NavBar: React.FC = () => {
       }}>
         {/* <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' /> */}
         <h1>GALILEU</h1>
-        <MenuOutlined style={{ display: width > 768 ? "none" : 'block' }} className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />
+        <MenuOutlined style={{ display: windowSize.width > 768 ? "none" : 'block' }} className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />
         <div className="navbar-dropdown-overlay" style={{ display: activeMenuList ? "block" : 'none' }} onClick={() => setActiveMenuList(false)} ></div>
-        <ul className="navbar-content-list-desktop" style={{ display: width >= 768 ? "flex" : activeMenuList ? 'flex' : "none" }}>
+        <ul className="navbar-content-list-desktop" style={{ display: windowSize.width >= 768 ? "flex" : activeMenuList ? 'flex' : "none" }}>
           {NAVBAR_LINK.map((item, key) =>
             <li
               key={key}
