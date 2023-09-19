@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AppProvider } from '@/contexts/AppContext'
+import FloatBtn from '@/components/FloatBtn'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <AppProvider>
           <NavBar />
           {children}
+          <FloatBtn />
         </AppProvider>
       </body>
     </html>
