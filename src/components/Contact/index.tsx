@@ -8,6 +8,8 @@ import Button from '../Button'
 import { Facebook, Instagram, WhatsApp } from '@mui/icons-material'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
+import Lottie from 'lottie-react'
+import send_msg from '../../../public/send-msg.json'
 
 type Inputs = {
     name: string,
@@ -15,8 +17,8 @@ type Inputs = {
     text: string
 }
 
-export default function Contact() {
-    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+export default function Contact () {
+    const { register, reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const [controller, setController] = useState<boolean>(true);
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -29,10 +31,10 @@ export default function Contact() {
         `
         const WHATSAPP_URI = `https://wa.me/${owner_number}?text=${encodeURIComponent(final_message)}`
         setController(false);
+        reset();
         setTimeout(() => {
             window.open(WHATSAPP_URI, '_blank');
-            setController(true);
-        }, 3000);
+        }, 4000);
     };
 
     return (
@@ -48,7 +50,7 @@ export default function Contact() {
                     <a href="www.google.com" className="social-link"><Instagram /></a>
                 </div>
                 {
-                    !controller ?
+                    controller ?
                         <>
                             <p className="form-contact-text">ou Fale conosco:</p>
                             <div className="form-contact-main">
@@ -61,12 +63,26 @@ export default function Contact() {
                             </div>
                             <Button type='submit' value='Enviar' variant='tertiary' />
                         </> : <div className='form-loading-content'>
-                            <span>CARREGANDO</span>
-                            <p>Vamos abrir um link seguro com o Whatsapp para finalizar o envio, aguarde!</p>
-                            <p>Você falará com <strong>Reinaldo Moura</strong></p>
+                            <LoadingAnimation />
+                            <p>Vamos abrir um <strong>link seguro</strong> com o <strong>Whatsapp</strong> para finalizar o envio, aguarde!</p>
+                            <p>Você falará com <strong>Reinaldo Moura.</strong></p>
+                            <Button type='button' value='Nova Mensagem' variant='secondary' onPress={() => setController(true)}/>
                         </div>
                 }
             </div>
         </form>
+    )
+}
+
+const LoadingAnimation = () => {
+    return (
+        <Lottie 
+            animationData={send_msg}
+            loop={false}
+            style={{
+                width: 250,
+                height: 250
+            }}
+        />
     )
 }

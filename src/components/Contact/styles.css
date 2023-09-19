@@ -21,6 +21,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 2rem 3rem;
     gap: 1rem;
+    transition: all 1s ease-in-out;
 }
 
 .form-contact-text {
@@ -80,12 +81,13 @@
 }
 
 .form-loading-content {
+    transition: all 1s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    width: 250px;
+    width: 260px;
     margin: 0 auto;
     text-align: center;
 }
