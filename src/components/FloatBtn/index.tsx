@@ -9,9 +9,27 @@ export default function FloatBtn() {
 
   return (
     <>
+      <style>
+        {
+          `
+          @media screen and (min-width: 320px) {
+            .float-btn {
+              bottom: 80px
+            }
+          }
+
+          @media screen and (min-width: 481px) {
+            .float-btn {
+              bottom: 20px
+            }
+          }
+        `
+        }
+      </style>
       {scroll > 500 &&
         <button
           type='button'
+          className='float-btn'
           onClick={() => console.log('Linkei com whatsapp')}
           style={{
             background: '#25d368',
@@ -20,7 +38,6 @@ export default function FloatBtn() {
             border: 'none',
             cursor: 'pointer',
             position: 'fixed',
-            bottom: 10,
             right: 10
           }}
         >
