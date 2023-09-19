@@ -10,6 +10,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import Lottie from 'lottie-react'
 import send_msg from '../../../public/send-msg.json'
+import { motion } from 'framer-motion';
 
 type Inputs = {
     name: string,
@@ -17,7 +18,7 @@ type Inputs = {
     text: string
 }
 
-export default function Contact () {
+export default function Contact() {
     const { register, reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const [controller, setController] = useState<boolean>(true);
 
@@ -39,10 +40,20 @@ export default function Contact () {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='form-container'>
-            <aside className="left-container-side">
+            <motion.aside
+                initial={motion_settings.offScreenLeft}
+                whileInView={motion_settings.onScreen}
+                viewport={{ once: true }}
+                className="left-container-side"
+            >
                 <Image src={man_secondary_creative} alt='Criativo da área de contato' className='aside-man-image' />
-            </aside>
-            <div className="form-contact-content">
+            </motion.aside>
+            <motion.div
+                initial={motion_settings.offScreenRight}
+                whileInView={motion_settings.onScreen}
+                viewport={{ once: true }}
+                className="form-contact-content"
+            >
                 <p className="form-contact-text">Acesse nossos Perfis</p>
                 <div className="form-contact-header">
                     <a href="www.google.com" className="social-link"><WhatsApp /></a>
@@ -66,17 +77,17 @@ export default function Contact () {
                             <LoadingAnimation />
                             <p>Vamos abrir um <strong>link seguro</strong> com o <strong>Whatsapp</strong> para finalizar o envio, aguarde!</p>
                             <p>Você falará com <strong>Reinaldo Moura.</strong></p>
-                            <Button type='button' value='Nova Mensagem' variant='secondary' onPress={() => setController(true)}/>
+                            <Button type='button' value='Nova Mensagem' variant='secondary' onPress={() => setController(true)} />
                         </div>
                 }
-            </div>
+            </motion.div>
         </form>
     )
 }
 
 const LoadingAnimation = () => {
     return (
-        <Lottie 
+        <Lottie
             animationData={send_msg}
             loop={false}
             style={{
@@ -85,4 +96,24 @@ const LoadingAnimation = () => {
             }}
         />
     )
+}
+
+const motion_settings = {
+    offScreenLeft: {
+        opacity: 0,
+        translateX: -500
+    },
+    offScreenRight: {
+        opacity: 0,
+        translateX: 500
+    },
+    onScreen: {
+        opacity: 1,
+        translateX: 0,
+        transition: {
+            type: "spring",
+            bounce: 0.4,
+            duration: 2
+        }
+    }
 }

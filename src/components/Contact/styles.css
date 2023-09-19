@@ -21,7 +21,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 2rem 3rem;
     gap: 1rem;
-    transition: all 1s ease-in-out;
 }
 
 .form-contact-text {
