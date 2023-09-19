@@ -4,12 +4,14 @@ import Image from 'next/image';
 
 type CardProps = {
   image: any;
-  value: string
+  value: string,
+  children?: React.ReactNode
 };
 
 export default function Card({
   image,
   value,
+  children
 }: CardProps) {
   return (
     <div className='card-container'>
@@ -21,6 +23,7 @@ export default function Card({
       />
       <div className="card-image-overlay"></div>
       <span>{value}</span>
+      {children}
     </div>
   )
 }

@@ -5,7 +5,7 @@
     position: fixed;
     background-color: var(--primary-color);
     z-index: 999;
-    bottom: 0;
+    bottom: 0;box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 10px 0px;
 }
 
 .navbar-app-logo {
