@@ -6,6 +6,7 @@ import liveRoom from '../../public/liveroom.jpg'
 import room from '../../public/room.jpg'
 import kitchen from '../../public/kitchen.jpg'
 import Card from '@/components/Card'
+import Form from '@/components/Form'
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
       <section id="contact" className={styles.contact_container}>
         <h2 className={styles.home_section_title}>Contato</h2>
         <article className={styles.contacts_align}>
+          <Form />
         </article>
       </section>
     </main>
