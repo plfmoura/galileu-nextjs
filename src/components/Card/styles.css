@@ -16,12 +16,14 @@
     height: 100%;
     object-fit: cover;
     position: absolute;
+    filter: grayscale(20%);
 }
 
 .card-container:hover .card-image {
-    width: 130%;
-    height: 130%;
-    transition: all 200ms ease-in-out;
+    width: 120%;
+    filter: grayscale(0%);
+    height: 120%;
+    transition: all 400ms ease-in-out;
 }
 
 .card-image-overlay {

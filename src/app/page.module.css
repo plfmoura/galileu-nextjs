@@ -4,6 +4,10 @@
   margin-bottom: 6rem;
 }
 
+.header_align {
+  background-color: #e2ad637d;
+}
+
 .article_align {
   margin-top: 2rem;
   display: flex;
@@ -32,6 +36,7 @@
   align-items: center;
   gap: 1rem;
   overflow: scroll;
+  padding-bottom: 1rem;
 }
 
 @media screen and (min-width: 768px) {
