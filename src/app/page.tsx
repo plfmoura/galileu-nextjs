@@ -26,7 +26,7 @@ export default function Home() {
         <article className={styles.cards_align}>
           {
             SERVICES_DATA.map((item, key) => (
-              <Card key={key} value={item.value} image={item.image} children={<h1>Hello</h1>}/>
+              <Card key={key} value={item.value} image={item.image} />
             ))
           }
         </article>

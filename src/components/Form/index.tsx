@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import man_secondary_creative from '../../../public/man-secondary.png'
 import Image from 'next/image'
@@ -6,17 +8,22 @@ import Button from '../Button'
 import { Facebook, Instagram, WhatsApp } from '@mui/icons-material'
 
 export default function Form() {
+
+    const handleSubmit: any = () => {
+        console.log('Enviado')
+    };
+
     return (
         <div className='form-container'>
             <aside className="left-container-side">
                 <Image src={man_secondary_creative} alt='Criativo da área de contato' className='aside-man-image' />
             </aside>
-            <form action="" className="form-contact-content">
+            <form onSubmit={handleSubmit} className="form-contact-content">
                 <p className="form-contact-text">Acesse nossos Perfis</p>
                 <div className="form-contact-header">
-                    <a href="" className="social-link"><WhatsApp /></a>
-                    <a href="" className="social-link"><Facebook /></a>
-                    <a href="" className="social-link"><Instagram /></a>
+                    <a href="www.google.com" className="social-link"><WhatsApp /></a>
+                    <a href="www.google.com" className="social-link"><Facebook /></a>
+                    <a href="www.google.com" className="social-link"><Instagram /></a>
                 </div>
                 <p className="form-contact-text">ou Fale conosco:</p>
                 <div className="form-contact-main">
