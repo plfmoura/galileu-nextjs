@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useContext } from 'react'
 import man_secondary_creative from '../../../public/man-secondary.png'
 import Image from 'next/image'
 import './styles.css'
@@ -11,6 +11,7 @@ import { useState } from 'react';
 import Lottie from 'lottie-react'
 import send_msg from '../../../public/send-msg.json'
 import { motion } from 'framer-motion';
+import { AppContext } from '@/contexts/AppContext'
 
 type Inputs = {
     name: string,
@@ -21,6 +22,7 @@ type Inputs = {
 export default function Contact() {
     const { register, reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const [controller, setController] = useState<boolean>(true);
+    const { windowSize } = useContext<any>(AppContext);
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         let owner_number: number = 5521980693374;
@@ -49,7 +51,7 @@ export default function Contact() {
                 <Image src={man_secondary_creative} alt='Criativo da área de contato' className='aside-man-image' />
             </motion.aside>
             <motion.div
-                initial={motion_settings.offScreenRight}
+                initial={windowSize.width >= 780 ? motion_settings.offScreenRight : motion_settings.offScreenMobile}
                 whileInView={motion_settings.onScreen}
                 viewport={{ once: true }}
                 className="form-contact-content"
@@ -99,6 +101,9 @@ const LoadingAnimation = () => {
 }
 
 const motion_settings = {
+    offScreenMobile: {
+        opacity: 0,
+    },
     offScreenLeft: {
         opacity: 0,
         translateX: -500

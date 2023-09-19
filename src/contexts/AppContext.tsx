@@ -5,20 +5,26 @@ import { createContext, useEffect, useState } from "react";
 export const AppContext = createContext({});
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [width, setWidth] = useState<number>(0);
   const [scroll, setScroll] = useState(0);
-
-  const handleResize = () => {
-    setWidth(window.innerWidth);
-  };
+  const [windowSize, setWindowSize] = useState<object>({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [width])
+  }, []);
 
   useEffect(() => {
     if (scroll < 200) {
@@ -28,16 +34,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [scroll])
 
-  useEffect(() => {
-    if (width === 0) {
-      handleResize();
-    }
-  }, [width])
-
   return (
     <AppContext.Provider value={{
-      width,
-      setWidth,
+      windowSize,
       scroll
     }}>
       {children}

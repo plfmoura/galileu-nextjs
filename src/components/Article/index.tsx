@@ -1,10 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from '../Button'
 import './styles.css'
 import { motion } from 'framer-motion'
+import { AppContext } from '@/contexts/AppContext'
 
 type ArticleProps = {
   image: any,
@@ -17,21 +18,12 @@ export default function Article({
   title,
   text
 }: ArticleProps) {
+  const { windowSize } = useContext<any>(AppContext);
+
   return (
     <motion.article
-      initial={{
-        opacity: 0, 
-        translateX: 500
-      }}
-      whileInView={{
-        opacity: 1, 
-        translateX: 0,
-        transition: {
-          type: "spring",
-          bounce: 0.4,
-          duration: 2
-        }
-      }}
+      initial={windowSize.width >= 780 ? motion_settings.offScreenLeft : motion_settings.offScreenMobile}
+      whileInView={motion_settings.onScreen}
       viewport={{ once: true, amount: "some" }}
       className="article-container"
     >
@@ -43,4 +35,23 @@ export default function Article({
       </aside>
     </motion.article>
   )
+}
+
+const motion_settings = {
+  offScreenMobile: {
+    opacity: 0,
+  },
+  offScreenLeft: {
+    opacity: 0,
+    translateX: -500
+  },
+  onScreen: {
+    opacity: 1,
+    translateX: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 2
+    }
+  }
 }
