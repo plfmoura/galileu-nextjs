@@ -7,17 +7,29 @@ import React, { useContext } from 'react'
 export default function FloatBtn() {
   const { scroll } = useContext<any>(AppContext);
 
+  const onFloatBtnClick = () => {
+    let owner_number: number = 5521980693374;
+        let final_message: string = `Olá, estou aqui através do Site da Galileu Marcenaria.`
+        const WHATSAPP_URI = `https://wa.me/${owner_number}?text=${encodeURIComponent(final_message)}`
+        setTimeout(() => {
+            window.open(WHATSAPP_URI, '_blank');
+        }, 2000);
+  }
+
   return (
     <>
       <style>
         {
           `
+          .float-btn:active {
+            transform: scale(0.9);
+            filter: brightness(0.5);
+          }
           @media screen and (min-width: 320px) {
             .float-btn {
               bottom: 80px
             }
           }
-
           @media screen and (min-width: 481px) {
             .float-btn {
               bottom: 20px
@@ -26,11 +38,11 @@ export default function FloatBtn() {
         `
         }
       </style>
-      {scroll > 500 &&
+      {scroll > 300 &&
         <button
           type='button'
           className='float-btn'
-          onClick={() => console.log('Linkei com whatsapp')}
+          onClick={onFloatBtnClick}
           style={{
             background: '#25d368',
             padding: '.7rem',
@@ -38,6 +50,7 @@ export default function FloatBtn() {
             border: 'none',
             cursor: 'pointer',
             position: 'fixed',
+            zIndex: 700,
             right: 10
           }}
         >

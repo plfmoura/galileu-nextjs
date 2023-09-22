@@ -1,8 +1,8 @@
-import NavBar from '@/components/NavBar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AppProvider } from '@/contexts/AppContext'
+import { BottomNavigation, TopNavigation } from '@/components/NavBar'
 import FloatBtn from '@/components/FloatBtn'
 import Footer from '@/components/Footer'
 
@@ -22,9 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppProvider>
-          <NavBar />
-          {children}
+          <TopNavigation />
+          <BottomNavigation />
           <FloatBtn />
+          {children}
           <Footer />
         </AppProvider>
       </body>

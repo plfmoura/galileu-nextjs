@@ -10,7 +10,7 @@ export default function Header() {
     <>
       <h2 className='logo-content'>GALILEU</h2>
       <section className='header-container'>
-        <Image src={man} alt='man' className='header-man-image' />
+        <Image src={man} alt='man' className='header-man-image' style={{ width: 'auto' }}/>
         <div className="header-text-content">
           <h1 className="header-galileu-icon">Móveis Planejados</h1>
           <p className="header-galileu-desc">lorem ipsunm daz quer pra tayas car pra zium</p>

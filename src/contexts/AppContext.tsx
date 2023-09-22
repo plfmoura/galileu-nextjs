@@ -10,7 +10,8 @@ interface WindowSize {
 }
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [scroll, setScroll] = useState(0);
+  const [scroll, setScroll] = useState<number>(0);
+  const [active, setActive] = useState<string>("#header");
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: 0,
     height: 0,
@@ -42,7 +43,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   return (
     <AppContext.Provider value={{
       windowSize,
-      scroll
+      scroll,
+      active,
+      setActive
     }}>
       {children}
     </AppContext.Provider>

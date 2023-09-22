@@ -1,76 +1,75 @@
 'use client'
 
-import Image from 'next/image';
 import React, { useState, useContext } from 'react';
 import './styles.css';
-import { MenuOutlined, HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp } from '@mui/icons-material';
+import { HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp, Menu } from '@mui/icons-material';
 import { AppContext } from '@/contexts/AppContext';
 
-const NavBar: React.FC = () => {
-  const [active, setActive] = useState<string>("#header");
-  const [activeMenuList, setActiveMenuList] = useState<boolean>(false);
-  const { windowSize, scroll } = useContext<any>(AppContext);
+export const BottomNavigation: React.FC = () => {
+  const { active, setActive } = useContext<any>(AppContext);
 
-  const handleNavigation = ({ path }: { path: string }) => {
-    setActive(path);
-    setActiveMenuList(false);
-  };
-  
   return (
-    <>
-      <nav className='navbar-container-mobile'>
-        <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' />
-        <ul className="navbar-content-list-mobile">
-          {NAVBAR_LINK.map((item, key) =>
-            <a key={key} href={`${item.path}`}>
-              <li
-                className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
-                id={item.name.toLowerCase()}
-                onClick={() => handleNavigation({ path: `${item.path}` })}
-              >
-                {item.icon}
-                <span className="navbar-item-name" >
-                  {item.name}
-                </span>
-              </li>
-            </a>
-          )}
-        </ul>
-      </nav>
-      <nav className='navbar-container-desktop' style={{
-        background: scroll > 30 ? `#333333${scroll < 99 ? scroll : 'ff'}` : 'transparent',
-        width: scroll > 30 ? '100vw' : '100vw',
-        margin: 0,
-        padding: '0 5%',
-        boxShadow: scroll > 30 ? 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px' : 'none'
-      }}>
-        {/* <Image src={"/csa.png"} width={100} height={20} alt="Galileu Design & Marcenaria logo" className='navbar-app-logo' /> */}
-        <h1>GALILEU</h1>
-        <MenuOutlined style={{ display: windowSize.width > 768 ? "none" : 'block' }} className='navbar-dropdown-menu' onClick={() => setActiveMenuList(true)} />
-        <div className="navbar-dropdown-overlay" style={{ display: activeMenuList ? "block" : 'none' }} onClick={() => setActiveMenuList(false)} ></div>
-        <ul className="navbar-content-list-desktop" style={{ display: windowSize.width >= 768 ? "flex" : activeMenuList ? 'flex' : "none" }}>
-          {NAVBAR_LINK.map((item, key) =>
+    <nav className='navbar-container-mobile'>
+      <ul className="navbar-content-list-mobile">
+        {NAVBAR_LINK.map((item, key) =>
+          <a key={key} href={`${item.path}`}>
             <li
-              key={key}
-              className={active === item.path ? "navbar-list-item-desktop navbar-active" : "navbar-list-item-desktop"}
+              className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
               id={item.name.toLowerCase()}
-              onClick={() => handleNavigation({ path: `${item.path}` })}
+              onClick={() => setActive(`${item.path}`)}
             >
-              <a href={`${item.path}`}>
-                {item.icon}
-                <span className="navbar-item-name" >
-                  {item.name}
-                </span>
-              </a>
+              {item.icon}
+              <span className="navbar-item-name" >
+                {item.name}
+              </span>
             </li>
-          )}
-        </ul>
-      </nav>
-    </>
+          </a>
+        )}
+      </ul>
+    </nav>
   )
 }
 
-export default NavBar;
+export const TopNavigation: React.FC = () => {
+  const [show, setShow] = useState<boolean>(false);
+  const { scroll, active, setActive } = useContext<any>(AppContext);
+
+  return (
+    <nav
+      className='navbar-container-top'
+      style={{
+        background: scroll > 100 ? 'var(--tertiary-color)' : 'transparent',
+        boxShadow: scroll > 100 ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : 'none',
+      }}
+    >
+      <h1 className="navbar-logo">GALILEU</h1>
+      {show && <div className="navbar-top-overlay" onClick={() => setShow(false)}></div>}
+      <aside className="align-navbar-content">
+        <Menu onClick={() => setShow(true)} />
+        <ul className={show ? "navbar-content-list active-top-bar" : "navbar-content-list"}>
+          {
+            NAVBAR_LINK.map((item, key) => (
+              <li
+                onClick={() => { setShow(false); setActive(`${item.path}`) }}
+                key={key}
+                className="navbar-list-item"
+                style={{
+                  color: active === item.path ? 'var(--secondary-color'
+                    : scroll > 100 ? 'var(--primary-color)'
+                      : 'var(--tertiary-color)'
+                }}
+              >
+                <a href={`${item.path}`}>
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
+    </nav>
+  )
+}
 
 const NAVBAR_LINK = [
   {
@@ -93,4 +92,4 @@ const NAVBAR_LINK = [
     path: '#contact',
     icon: <PermPhoneMsgSharp />,
   },
-];
+]
