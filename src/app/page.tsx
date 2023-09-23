@@ -9,12 +9,13 @@ import room from '../../public/room.jpg'
 import kitchen from '../../public/kitchen.jpg'
 import Card from '@/components/Card'
 import Contact from '@/components/Contact'
+import man from '../../public/man.png';
 
 export default function Home() {
   return (
     <main className={styles.home_container}>
       <header id="header" className={styles.header_align}>
-        <Header />
+        <Header image={man} title='Móveis Planejados'/>
       </header>
       <section id="about" className={styles.article_align}>
         {

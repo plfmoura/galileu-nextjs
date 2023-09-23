@@ -2,8 +2,11 @@
 
 import React, { useState, useContext } from 'react';
 import './styles.css';
-import { HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp, Menu } from '@mui/icons-material';
+import { HomeSharp, AutoStoriesSharp, HandymanSharp, PermPhoneMsgSharp, Menu, Store } from '@mui/icons-material';
 import { AppContext } from '@/contexts/AppContext';
+import logo_dark from '../../../public/logo/logo-dark.png';
+import logo_white from '../../../public/logo/logo-white.png';
+import Image from 'next/image';
 
 export const BottomNavigation: React.FC = () => {
   const { active, setActive } = useContext<any>(AppContext);
@@ -42,7 +45,7 @@ export const TopNavigation: React.FC = () => {
         boxShadow: scroll > 100 ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : 'none',
       }}
     >
-      <h1 className="navbar-logo">GALILEU</h1>
+      <Image src={scroll < 100 ? logo_dark : logo_white} className='logo-image' alt='Galileu logo' />
       {show && <div className="navbar-top-overlay" onClick={() => setShow(false)}></div>}
       <aside className="align-navbar-content">
         <Menu onClick={() => setShow(true)} />
@@ -59,7 +62,7 @@ export const TopNavigation: React.FC = () => {
                       : 'var(--tertiary-color)'
                 }}
               >
-                <a href={`${item.path}`}>
+                <a href={`/${item.path}`}>
                   {item.name}
                 </a>
               </li>
@@ -75,21 +78,31 @@ const NAVBAR_LINK = [
   {
     name: "Home",
     path: '#header',
+    page: false,
     icon: <HomeSharp />,
   },
   {
     name: "Sobre",
     path: '#about',
+    page: false,
     icon: <AutoStoriesSharp />,
   },
   {
     name: "Serviços",
     path: '#services',
+    page: false,
     icon: <HandymanSharp />,
   },
   {
     name: "Contato",
     path: '#contact',
+    page: false,
     icon: <PermPhoneMsgSharp />,
   },
+  {
+    name: "Loja",
+    path: 'store',
+    page: true,
+    icon: <Store />,
+  }
 ]

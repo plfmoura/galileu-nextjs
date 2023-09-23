@@ -1,0 +1,95 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Nicho pequeno",
+            "price": 100,
+            "image": "",
+            "description": "",
+            "category": "decorativo",
+            "stock": 10,
+            "color": "white"
+        },
+        {
+            "id": 2,
+            "name": "Cama de Casal com Cabeceira Estofada",
+            "price": 700,
+            "image": "",
+            "description": "Cama de casal espaçosa com cabeceira estofada para máximo conforto.",
+            "stock": 8,
+            "color": "beige"
+        },
+        {
+            "id": 3,
+            "name": "Escrivaninha de Madeira",
+            "price": 120,
+            "image": "",
+            "description": "Escrivaninha compacta feita de madeira com gavetas para armazenamento.",
+            "stock": 10,
+            "color": "brown"
+        },
+        {
+            "id": 4,
+            "name": "Guarda-Roupas de Madeira",
+            "price": 400,
+            "image": "",
+            "description": "Guarda-roupas espaçoso com portas de correr e gavetas.",
+            "stock": 7,
+            "color": "brown"
+        },
+        {
+            "id": 5,
+            "name": "Armário Aéreo de Cozinha",
+            "price": 300,
+            "image": "",
+            "description": "Armário aéreo para cozinha com prateleiras e espaço de armazenamento.",
+            "stock": 15,
+            "color": "white"
+        },
+        {
+            "id": 6,
+            "name": "Bancada de Cozinha",
+            "price": 250,
+            "image": "",
+            "description": "Bancada de cozinha com tampo de granito e armários embutidos.",
+            "stock": 10,
+            "color": "gray"
+        },
+        {
+            "id": 7,
+            "name": "Estante de Cozinha",
+            "price": 180,
+            "image": "",
+            "description": "Estante de cozinha com prateleiras para armazenar utensílios e ingredientes.",
+            "stock": 12,
+            "color": "brown"
+        },
+        {
+            "id": 8,
+            "name": "Mesa de Jantar de Vidro",
+            "price": 550,
+            "image": "",
+            "description": "Mesa de jantar moderna com tampo de vidro temperado e base de metal.",
+            "stock": 6,
+            "color": "transparent"
+        },
+        {
+            "id": 9,
+            "name": "Cadeira de Jantar",
+            "price": 90,
+            "image": "",
+            "description": "Cadeira de jantar confortável com assento estofado e pernas de metal.",
+            "stock": 14,
+            "color": "black"
+        },
+        {
+            "id": 10,
+            "name": "Mesa de Centro de Madeira",
+            "price": 160,
+            "image": "",
+            "description": "Mesa de centro de madeira maciça com design elegante.",
+            "stock": 9,
+            "color": "brown"
+        }
+    ]
+}
