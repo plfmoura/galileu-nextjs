@@ -9,11 +9,11 @@ export default function FloatBtn() {
 
   const onFloatBtnClick = () => {
     let owner_number: number = 5521980693374;
-        let final_message: string = `Olá, estou aqui através do Site da Galileu Marcenaria.`
-        const WHATSAPP_URI = `https://wa.me/${owner_number}?text=${encodeURIComponent(final_message)}`
-        setTimeout(() => {
-            window.open(WHATSAPP_URI, '_blank');
-        }, 2000);
+    let final_message: string = `Olá, estou aqui através do Site da Galileu Marcenaria.`
+    const WHATSAPP_URI = `https://wa.me/${owner_number}?text=${encodeURIComponent(final_message)}`
+    setTimeout(() => {
+      window.open(WHATSAPP_URI, '_blank');
+    }, 2000);
   }
 
   return (
@@ -25,14 +25,26 @@ export default function FloatBtn() {
             transform: scale(0.9);
             filter: brightness(0.5);
           }
+          .float-btn {
+            transform: scale(0.5);
+          }
           @media screen and (min-width: 320px) {
             .float-btn {
-              bottom: 80px
+              bottom: 60px;
+              right: -10px;
             }
           }
           @media screen and (min-width: 481px) {
             .float-btn {
-              bottom: 20px
+              bottom: 20px;
+              right: 5px;
+              transform: scale(0.8);
+            }
+          }
+          @media screen and (min-width: 768px) {
+            .float-btn {
+              right: 10px;
+              transform: scale(1);
             }
           }
         `
@@ -51,7 +63,6 @@ export default function FloatBtn() {
             cursor: 'pointer',
             position: 'fixed',
             zIndex: 700,
-            right: 10
           }}
         >
           <WhatsApp style={{

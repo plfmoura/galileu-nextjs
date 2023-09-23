@@ -1,4 +1,5 @@
 .footer-container {
+    height: 100%;
     margin-bottom: 4rem;
     background: var(--secondary-color);
 }
