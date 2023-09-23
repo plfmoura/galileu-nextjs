@@ -1,4 +1,7 @@
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
+import logo_white from '../../../public/logo/logo-white.png';
+import './styles.css';
 
 export default function Footer() {
     return (
@@ -8,29 +11,19 @@ export default function Footer() {
                 width: '100vw',
             }}
         >
-            <section 
-            className="footer-content"
-            style={{
-                width: '100%',
-                minHeight: '20vh',
-                background: 'var(--secondary-color)'
-            }}
-            >
-
+            <section className="footer-content">
+                <Image src={logo_white} className='footer-logo-image' alt='Galileu logo' height={100} />
+                <aside className="right-footer-align">
+                    <p>Rua Magno Martins 430, Ilha do Governador - RJ, 21911-190</p>
+                    <p>Telefone: (21)4701-2000</p>
+                    <p>WhatsApp: (21)99999-9999</p>
+                </aside>
             </section>
-            <div
-                className="copyright-container"
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    background: 'var(--tertiary-color)',
-                    color: 'var(--primary-color)',
-                    padding: '1rem 10%'
-                }}
-            >
-                <p>Desenvolvido por Label Soluções em T.I</p>
-                <p>Galileu Marcenaria &copy; 2023. All Rights Reserved.</p>
+            <div className='align-copyright'>
+                <div className="copyright-container">
+                    <p>Desenvolvido por Label Soluções em T.I</p>
+                    <p>Galileu Marcenaria &copy; 2023. All Rights Reserved.</p>
+                </div>
             </div>
         </footer>
     )

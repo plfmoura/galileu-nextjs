@@ -15,7 +15,7 @@ export const BottomNavigation: React.FC = () => {
     <nav className='navbar-container-mobile'>
       <ul className="navbar-content-list-mobile">
         {NAVBAR_LINK.map((item, key) =>
-          <a key={key} href={`${item.path}`}>
+          <a key={key} href={`/${item.path}`}>
             <li
               className={active === item.path ? "navbar-list-item navbar-active" : "navbar-list-item"}
               id={item.name.toLowerCase()}
