@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './page.module.css'
 import Header from '@/components/Header'
 import example from '../../../public/contact.png'
-import { products } from '../../utils/products.json'
+import products from '../../utils/products.json'
 import ProductCard from '@/components/ProductCard'
 
 export default function Store() {
@@ -13,7 +13,7 @@ export default function Store() {
       </header>
       <section className={styles.store_content}>
         {
-          products.map((product, index) => (
+          products.products.map((product) => (
             <ProductCard key={product.id} name={product.name} price={product.price}/>
           ))
         }
