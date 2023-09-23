@@ -15,13 +15,15 @@ export default function Footer() {
                 <Image src={logo_white} className='footer-logo-image' alt='Galileu logo' height={100} />
                 <aside className="right-footer-align">
                     <p>Rua Magno Martins 430, Ilha do Governador - RJ, 21911-190</p>
-                    <p>Telefone: (21) 4701-2000</p>
-                    <p>WhatsApp: (21) 9 9999-9999</p>
+                    <p>Telefone: (21)4701-2000</p>
+                    <p>WhatsApp: (21)99999-9999</p>
                 </aside>
             </section>
-            <div className="copyright-container">
-                <p>Desenvolvido por Label Soluções em T.I</p>
-                <p>Galileu Marcenaria &copy; 2023. All Rights Reserved.</p>
+            <div className='align-copyright'>
+                <div className="copyright-container">
+                    <p>Desenvolvido por Label Soluções em T.I</p>
+                    <p>Galileu Marcenaria &copy; 2023. All Rights Reserved.</p>
+                </div>
             </div>
         </footer>
     )

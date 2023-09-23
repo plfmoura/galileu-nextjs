@@ -20,6 +20,11 @@
     object-fit: contain;
 }
 
+.align-copyright {
+    width: 100vw;
+    background-color: var(--tertiary-color);
+}
+
 .copyright-container {
     height: 20vh;
     display: flex;
@@ -29,7 +34,6 @@
     text-align: center;
     padding: 1rem 10%;
     color: var(--primary-color);
-    background-color: var(--tertiary-color);
 }
 
 @media screen and (min-width: 480px) {
@@ -51,7 +55,21 @@
     .copyright-container {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 }
 
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+    .footer-content {
+        width: 1024px;
+        margin: 0 auto;
+        height: 20vh;
+    }
+
+    .copyright-container {
+        width: 1024px;
+        height: 10vh;
+        margin: 0 auto;
+        padding: 1rem 0;
+    }
+}
