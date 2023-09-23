@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { createContext, useEffect, useState } from "react";
 
 export const AppContext = createContext({});
@@ -10,11 +11,21 @@ interface WindowSize {
 }
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [scroll, setScroll] = useState(0);
+  const [scroll, setScroll] = useState<number>(0);
+  const [active, setActive] = useState<string>('');
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: 0,
     height: 0,
   });
+  const pathName = usePathname();
+
+  useEffect(() => {
+    if(pathName === '/') {
+      setActive('#header')
+    }else if (pathName === '/store'){
+      setActive('store')
+    }
+  }, [pathName]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,7 +53,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   return (
     <AppContext.Provider value={{
       windowSize,
-      scroll
+      scroll,
+      active,
+      setActive
     }}>
       {children}
     </AppContext.Provider>
