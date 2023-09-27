@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className={styles.home_container}>
       <header id="header" className={styles.header_align}>
-        <Header image={man} title='Móveis Planejados'/>
+        <Header image={man} variant='home'/>
       </header>
       <section id="about" className={styles.article_align}>
         {
@@ -65,25 +65,31 @@ const ARTICLES_DATA = [
   }
 ]
 
+import kitchen_service from '../../public/home/kitchen2.jpg';
+import liveroom_service from '../../public/home/liveroom2.jpg';
+import office_service from '../../public/home/office.jpg';
+import room_service from '../../public/home/room.webp';
+
+
 const SERVICES_DATA = [
   {
     id: 0,
-    image: room,
+    image: room_service,
     value: "Móveis para Quarto",
   },
   {
     id: 1,
-    image: room,
+    image: kitchen_service,
     value: "Móveis para Cozinha",
   },
   {
     id: 2,
-    image: room,
+    image: office_service,
     value: "Móveis para Escritório",
   },
   {
     id: 3,
-    image: room,
+    image: liveroom_service,
     value: "Móveis para Sala",
   },
 ]

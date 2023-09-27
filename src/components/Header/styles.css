@@ -31,28 +31,18 @@
     object-fit: contain;
     position: absolute;
     bottom: 0;
-    margin-left: 50%;
+    margin-left: 70%;
 }
 
 .header-text-content {
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
     position: relative;
+    gap: 15%;
     padding-left: 2%;
-    margin-right: 10%;
-}
-
-.header-text-content h1 {
-    font-size: 30px;
-}
-
-.header-text-content p {
-    width: 60%;
-    color: var(--tertiary-color)
 }
 
 .header-text-content button {
@@ -60,16 +50,19 @@
 }
 
 .header-galileu-icon {
-    font-size: 40px;
+    width: 310px;
+    font-size: 26px;
     border-radius: 100%;
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     animation: appears-icon 5s ease-in-out infinite;
 }
 
 .header-galileu-desc {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
+    opacity: 0.8;
+    font-size: 16px;
+        width: 70%;
 }
 
 @keyframes appears-icon {
@@ -105,7 +98,7 @@
 @media screen and (min-width: 480px) {
     .header-man-image {
         height: 80%;
-        margin-left: 40%;
+        margin-left: 80%;
     }
 
     .logo-content {
@@ -113,29 +106,44 @@
     }
 
     .header-text-content {
-        padding-left: 5%;
-        margin: 20% 30% 0 0;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        gap: 10%;
+        margin-top: 20%;
+        width: 100%;
     }
 
-    .header-text-content h1 {
+    .header-galileu-icon {
+        width: 400px;
         font-size: 32px;
         margin-top: 2rem;
     }
 
-    .header-text-content p {
+    .header-galileu-desc {
         font-size: 18px;
-        width: 80%;
-    }
-
-    .header-text-content button {
-        margin-bottom: 8rem;
+        width: 300px;
     }
 }
 
 @media screen and (min-width: 560px) {
     .header-man-image {
-        height: 90%;
-        margin-left: 50%;
+        height: 80%;
+        margin-left: 80%;
+    }
+
+    .header-text-content {
+        padding-left: 5%;
+        height: 100%;
+        margin: 15% 0;
+    }
+
+    .header-galileu-icon {
+        font-size: 38px;
+        width: 500px;
     }
 }
 
@@ -150,8 +158,9 @@
     }
 
     .header-text-content {
-        padding-left: 0;
-        margin: 5% 30% 0 0;
+        padding-left: 5%;
+        height: 100%;
+        margin: 10% 0;
     }
 
     .header-text-content h1 {
@@ -178,16 +187,19 @@
     }
 
     .header-text-content {
-        margin: 10% 30% 0 0;
+        padding-left: 5%;
+        height: 100%;
+        margin: 15% 0;
     }
 
     .header-text-content h1 {
         font-size: 48px;
+        width: 600px;
     }
 
     .header-text-content p:first-of-type {
+        width: 400px;
         font-size: 24px;
-        margin-top: 1rem;
     }
 
     .header-text-content button {
@@ -205,6 +217,12 @@
     .header-man-image {
         height: 88%;
         margin-left: 40%;
+    }
+
+    .header-text-content {
+        padding-left: 5%;
+        height: 100%;
+        margin-top: 10%;
     }
 
     .header-text-content h1 {

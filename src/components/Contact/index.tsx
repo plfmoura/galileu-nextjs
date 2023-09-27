@@ -56,11 +56,11 @@ export default function Contact() {
                 viewport={{ once: true }}
                 className="form-contact-content"
             >
-                <p className="form-contact-text">Acesse nossos Perfis</p>
-                <div className="form-contact-header">
-                    <a href="www.google.com" className="social-link"><WhatsApp /></a>
-                    <a href="www.google.com" className="social-link"><Facebook /></a>
-                    <a href="www.google.com" className="social-link"><Instagram /></a>
+                <p className="form-contact-text">Acesse nosso Perfil</p>
+                <div className="form-contact-header" style={{ justifyContent: 'center' }}>
+                    {/* <a href="www.google.com" className="social-link"><WhatsApp /></a> */}
+                    {/* <a href="www.google.com" className="social-link"><Facebook /></a> */}
+                    <a href="https://www.instagram.com/galileu_marcenaria/" target='_blank' className="social-link"><Instagram /></a>
                 </div>
                 {
                     controller ?
@@ -68,11 +68,11 @@ export default function Contact() {
                             <p className="form-contact-text">ou Fale conosco:</p>
                             <div className="form-contact-main">
                                 <label htmlFor="name" className="input-label">Nome {errors.name && <span>Insira seu nome</span>}</label>
-                                <input type="text" {...register('name', { required: true })} className="form-input" />
+                                <input type="text" id="name"{...register('name', { required: true })} className="form-input" />
                                 <label htmlFor="tel" className="input-label">Telefone {errors.tel && <span>Insira seu telefone</span>}</label>
-                                <input type="tel" {...register('tel', { required: true })} className="form-input" />
+                                <input type="tel" id="tel" {...register('tel', { required: true })} className="form-input" />
                                 <label htmlFor="msg" className="input-label">Mensagem {errors.text && <span>Deixe sua mensagem</span>}</label>
-                                <textarea maxLength={105} {...register('text', { required: true })} className="form-input" />
+                                <textarea id="msg" maxLength={105} {...register('text', { required: true })} className="form-input" />
                             </div>
                             <Button type='submit' value='Enviar' variant='tertiary' />
                         </> : <div className='form-loading-content'>
