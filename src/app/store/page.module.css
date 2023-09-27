@@ -6,3 +6,13 @@
 .header_align {
     background: linear-gradient(90deg, rgba(252, 202, 127, 0.537) 0%, rgba(14, 12, 11, 0.112) 100%);
 }
+
+.store_content {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 5vh;   
+}
