@@ -8,10 +8,10 @@ import logo_white from '../../../public/logo/logo-white.png';
 
 type HeaderProps = {
   image: string | StaticImport,
-  title: string
+  variant: 'loja' | 'home'
 }
 
-export default function Header({ image, title }: HeaderProps) {
+export default function Header({ image, variant }: HeaderProps) {
   return (
     <>
       <div className="align-logo-header">
@@ -19,12 +19,24 @@ export default function Header({ image, title }: HeaderProps) {
       </div>
       <section className='header-container'>
         <Image src={image} alt='man' className='header-man-image' style={{ width: 'auto' }} />
-        <div className="header-text-content">
-          <h1 className="header-galileu-icon">{title}</h1>
-          <p className="header-galileu-desc">lorem ipsunm daz quer pra tayas car pra zium</p>
-          <p className="header-galileu-desc">lorem ipsunm daz quer pra tayas car pra zium</p>
-          <a href="#services"><Button value='Consultar serviços' type='button' variant='secondary' style={{ padding: "1rem 3rem" }} /></a>
-        </div>
+        {
+          variant == 'loja' &&
+          <div className="header-text-content">
+            <h1 className="header-galileu-icon">Explore Nossa Loja de Móveis</h1>
+            <p className="header-galileu-desc">Explore nossa loja e descubra peças perfeitas para complementar seu espaço de maneira rápida e conveniente.</p>
+            {/* <p className="header-galileu-desc">Estamos prontos para atender às suas necessidades de decoração com a qualidade e o design que você merece.</p> */}
+            <a href="#store"><Button value='Saiba Mais' type='button' variant='secondary' style={{ padding: "1rem 3rem" }} /></a>
+          </div>
+        }
+        {
+          variant == 'home' &&
+          <div className="header-text-content">
+            <h1 className="header-galileu-icon">Móveis Personalizados para você</h1>
+            <p className="header-galileu-desc">Criamos soluções de design personalizado que se encaixam perfeitamente na sua vida e estilo.</p>
+            {/* <p className="header-galileu-desc">Projetados visando atender às suas necessidades diárias. De cozinhas bem organizadas a closets espaçosos, estamos aqui para transformar sua visão em realidade.</p> */}
+            <a href="#services"><Button value='Saiba mais' type='button' variant='secondary' style={{ padding: "1rem 3rem" }} /></a>
+          </div>
+        }
         <span className="bottom-decorative-shape"><ArrowDownwardOutlined /></span>
       </section>
     </>

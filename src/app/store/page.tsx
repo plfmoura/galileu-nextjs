@@ -15,9 +15,9 @@ export default function Store() {
   return (
     <main className={styles.store_container}>
       <header className={styles.header_align}>
-        <Header image={example} title='Veja nossa Loja'/>
+        <Header image={example} variant="loja"/>
       </header>
-      <section className={styles.store_content}>
+      <section id="store" className={styles.store_content}>
         {/* {
           products.products.map((product) => (
             <ProductCard key={product.id} name={product.name} price={product.price}/>
